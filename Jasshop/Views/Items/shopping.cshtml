@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Jasshop.Models.Items>
+
+@{
+    ViewData["Title"] = "Shopping Cart";
+}
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Item Name
+            </th>
+            <th>
+                Discription
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                Quantity
+            </th>
+            <
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.list)
+        {
+            <tr>
+                <td>
+                    item
+                </td>
+            
+            </tr>
+        }
+    </tbody>
+</table>

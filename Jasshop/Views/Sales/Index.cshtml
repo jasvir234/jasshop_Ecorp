@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Jasshop.Models.Sales>
+
+@{
+    ViewData["Title"] = "Sales";
+}
+
+<h2>Sales</h2>
+
+<p>
+    
+    <a class="btn btn-default" asp-area="" asp-controller="Sales" asp-action="MySales">My Purchase History</a>
+</p>
+<form asp-controller="Sales" asp-action="Index" method="get">
+    <p>
+        Item Name: <input type="text" name="SearchString">
+        <input type="submit" value="Search" />
+    </p>
+</form>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ItemName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Seller)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Buyer)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.ItemName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Seller)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Buyer)
+            </td>
+            <td>
+                
+                <a asp-action="Details" asp-route-id="@item.Id">Details</a> 
+                
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
